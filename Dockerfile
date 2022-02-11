@@ -57,7 +57,8 @@ RUN apk add --no-cache --update alpine-sdk \
 FROM alpine as final
 
 # Define a root volume for data persistence.
-VOLUME /root/.lnd
+# Don't do this it breaks things in k8s
+# VOLUME /root/.lnd
 
 # Expose lightning-terminal and lnd ports (server, rpc).
 EXPOSE 8443 10009 9735
